@@ -23,8 +23,8 @@ public class EnemyAttacker : MonoBehaviour
             entityManager.SetComponentData(enemyAttackEntity, new EnemyAttackData
             {
                 Timer = 0f,
-                Frequency = SurvivalShooterBootstrap.Settings.TimeBetweenEnemyAttacks,
-                Damage = SurvivalShooterBootstrap.Settings.EnemyAttackDamage,
+                Frequency = PureBootstrap.Settings.TimeBetweenEnemyAttacks,
+                Damage = PureBootstrap.Settings.EnemyAttackDamage,
                 Source = GetComponent<GameObjectEntity>().Entity,
                 Target = player.GetComponent<GameObjectEntity>().Entity
             });

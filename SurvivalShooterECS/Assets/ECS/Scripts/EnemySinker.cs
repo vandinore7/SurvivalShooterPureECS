@@ -8,7 +8,7 @@ public class EnemySinker : MonoBehaviour
     private void Update()
     {
         if (isSinking)
-            transform.Translate(-Vector3.up * SurvivalShooterBootstrap.Settings.EnemySinkSpeed * Time.deltaTime);
+            transform.Translate(-Vector3.up * PureBootstrap.Settings.EnemySinkSpeed * Time.deltaTime);
     }
 
     public void StartSinking()

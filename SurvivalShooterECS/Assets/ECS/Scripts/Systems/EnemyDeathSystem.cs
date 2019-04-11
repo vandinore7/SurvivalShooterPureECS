@@ -1,43 +1,32 @@
-﻿using Unity.Entities;
-using UnityEngine;
+﻿//using Unity.Entities;
+//using UnityEngine;
 
-public class EnemyDeathSystem : ComponentSystem
-{
-    private EntityQuery query;
+//public class EnemyDeathSystem : ComponentSystem
+//{
+//    private EntityQuery query;
 
-    private int score;
-    
-    private static readonly int DeadHash = Animator.StringToHash("Dead");
+// private int score;
 
-    protected override void OnCreate()
-    {
-        query = GetEntityQuery(
-            ComponentType.ReadOnly<EnemyData>(),
-            ComponentType.ReadOnly<DeadData>(),
-            ComponentType.ReadOnly<CapsuleCollider>(),
-            ComponentType.ReadOnly<Animator>(),
-            ComponentType.ReadOnly<AudioSource>());
-    }
+// private static readonly int DeadHash = Animator.StringToHash("Dead");
 
-    protected override void OnUpdate()
-    {
-        var gameUi = SurvivalShooterBootstrap.Settings.GameUi;
-        var scorePerDeath = SurvivalShooterBootstrap.Settings.ScorePerDeath;
+// protected override void OnCreate() { query = GetEntityQuery( ComponentType.ReadOnly<EnemyData>(),
+// ComponentType.ReadOnly<DeadData>(), ComponentType.ReadOnly<CapsuleCollider>(),
+// ComponentType.ReadOnly<Animator>(), ComponentType.ReadOnly<AudioSource>()); }
 
-        Entities.With(query).ForEach(
-            (Entity entity, CapsuleCollider collider, Animator animator, AudioSource audio) =>
-            {
-                collider.isTrigger = true;
+// protected override void OnUpdate() { var gameUi = SurvivalShooterBootstrap.Settings.GameUi; var
+// scorePerDeath = SurvivalShooterBootstrap.Settings.ScorePerDeath;
 
-                animator.SetTrigger(DeadHash);
+// Entities.With(query).ForEach( (Entity entity, CapsuleCollider collider, Animator animator,
+// AudioSource audio) => { collider.isTrigger = true;
 
-                audio.clip = SurvivalShooterBootstrap.Settings.EnemyDeathClip;
-                audio.Play();
+// animator.SetTrigger(DeadHash);
 
-                PostUpdateCommands.RemoveComponent<DeadData>(entity);
+// audio.clip = SurvivalShooterBootstrap.Settings.EnemyDeathClip; audio.Play();
 
-                score += scorePerDeath;
-                gameUi.OnEnemyKilled(score);
-            });
-    }
-}
+// PostUpdateCommands.RemoveComponent<DeadData>(entity);
+
+//                score += scorePerDeath;
+//                gameUi.OnEnemyKilled(score);
+//            });
+//    }
+//}

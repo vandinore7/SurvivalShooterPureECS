@@ -2,7 +2,7 @@
 using Unity.Mathematics;
 using UnitySampleAssets.CrossPlatformInput;
 
-[DisableAutoCreation]
+//[DisableAutoCreation]
 public class PlayerInputSystem : ComponentSystem
 {
     private EntityQuery query;
@@ -10,8 +10,7 @@ public class PlayerInputSystem : ComponentSystem
     protected override void OnCreate()
     {
         query = GetEntityQuery(
-            ComponentType.ReadOnly<PlayerInputData>(),
-            ComponentType.Exclude<DeadData>());
+ComponentType.ReadOnly<PlayerInputData>(), ComponentType.Exclude<DeadData>());
     }
 
     protected override void OnUpdate()

@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+﻿//using UnityEngine;
 
-public class SurvivalShooterLauncher : MonoBehaviour
-{
-    private void Start()
-    {
-        SurvivalShooterBootstrap.NewGame();
-    }
-}
+//public class SurvivalShooterLauncher : MonoBehaviour
+//{
+//    private void Start()
+//    {
+//        SurvivalShooterBootstrap.NewGame();
+//    }
+//}
